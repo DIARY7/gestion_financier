@@ -4,68 +4,74 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Briefcase, Building2 } from 'lucide-react'
 import SearchBilan from '../composants/ui/form/SearchBilan'
 
-// Données fictives pour le bilan
-const bilanData = {
-  actif: [
-    {
-      titre: "Actifs Non Courants ",
-      items: [
-        { libelle: "Immobilisations incorporelles", montant: 50000 },
-        { libelle: "Immobilisations corporelles", montant: 150000 },
-        { libelle: "Immobilisations financières", montant: 25000 },
-      ]
-    },
-    {
-      titre: "Actif Courants ",
-      items: [
-
-        { libelle: "Stocks", montant: 75000 },
-        { libelle: "Créances clients", montant: 100000 },
-        { libelle: "Disponibilités", montant: 50000 },
-      ]
-    },
-  ],
-  passif: [
-    {
-      titre: "Capitaux propres",
-      items: [
-        { libelle: "Capital", montant: 200000 },
-        { libelle: "Réserves", montant: 50000 },
-        { libelle: "Résultat de l'exercice", montant: 30000 },
-      ]
-    },
-    {
-      titre: "Emprunts",
-      items: [
-        { libelle: "Emprunts bancaires", montant: 100000 },
-      ]
-    },
-    {
-      titre: "Dettes",
-      items: [
-        { libelle: "Dettes fournisseurs", montant: 50000 },
-        { libelle: "Dettes fiscales et sociales", montant: 20000 },
-      ]
-    },
-  ]
-}
-
-/* 
-  Data de Test
-*/
-
 const categories = [
   {
-    nomCategorie: "Capitaux propres et passifs",
-    montant: 0.0,
+    nomCategorie: "Actif",
+    montant: 450000,
     listeSousCategorie: [
       {
-        nomSousCategorie: "Excedent brut d'exploitation",
-        montant: 0.0,
+        nomSousCategorie: "Actifs Non Courants",
+        montant: 225000,
         listeTypeRubrique: [
           {
-            nomTypeRubrique: "Autres services exterieurs",
-            somme: 0.0,
+            nomTypeRubrique: "Immobilisations incorporelles",
+            somme: 50000,
+            listeRubrique: [
+              { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
+              { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
+              { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
+              { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
+            ],
+          },
+          {
+            nomTypeRubrique: "Immobilisations corporelles",
+            somme: 150000,
+            listeRubrique: [
+              { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
+              { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
+              { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
+              { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
+            ],
+          },
+          {
+            nomTypeRubrique: "Immobilisations financières",
+            somme: 25000,
+            listeRubrique: [
+              { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
+              { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
+              { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
+              { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
+            ],
+          },
+        ],
+      },
+      {
+        nomSousCategorie: "Actifs Courants",
+        montant: 225000,
+        listeTypeRubrique: [
+          {
+            nomTypeRubrique: "Stocks",
+            somme: 75000,
+            listeRubrique: [
+              { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
+              { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
+              { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
+              { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
+            ],
+          },
+          {
+            nomTypeRubrique: "Créances clients",
+            somme: 100000,
+            listeRubrique: [
+              { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
+              { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
+              { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
+              { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
+            ],
+          },
+          {
+            nomTypeRubrique: "Disponibilités",
+            somme: 50000,
             listeRubrique: [
               { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
               { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
@@ -78,16 +84,16 @@ const categories = [
     ],
   },
   {
-    nomCategorie: "Actifs immobilisés",
-    montant: 0.0,
+    nomCategorie: "Passif",
+    montant: 450000,
     listeSousCategorie: [
       {
-        nomSousCategorie: "Immobilisations corporelles",
-        montant: 0.0,
+        nomSousCategorie: "Capitaux propres",
+        montant: 450000,
         listeTypeRubrique: [
           {
-            nomTypeRubrique: "Biens immobiliers",
-            somme: 0.0,
+            nomTypeRubrique: "Capital",
+            somme: 450000,
             listeRubrique: [
               { id: 201, libelle: "Terrains", montant: 0.0 },
               { id: 202, libelle: "Bâtiments", montant: 0.0 },
@@ -99,64 +105,18 @@ const categories = [
       },
     ],
   },
-  {
-    nomCategorie: "Produits d'exploitation",
-    montant: 0.0,
-    listeSousCategorie: [
-      {
-        nomSousCategorie: "Produits de vente",
-        montant: 0.0,
-        listeTypeRubrique: [
-          {
-            nomTypeRubrique: "Chiffre d'affaires",
-            somme: 0.0,
-            listeRubrique: [
-              { id: 301, libelle: "Ventes de marchandises", montant: 0.0 },
-              { id: 302, libelle: "Ventes de services", montant: 0.0 },
-              { id: 303, libelle: "Produits accessoires", montant: 0.0 },
-              { id: 304, libelle: "Autres produits", montant: 0.0 },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    nomCategorie: "Charges financières",
-    montant: 0.0,
-    listeSousCategorie: [
-      {
-        nomSousCategorie: "Frais financiers",
-        montant: 0.0,
-        listeTypeRubrique: [
-          {
-            nomTypeRubrique: "Charges d'intérêts",
-            somme: 0.0,
-            listeRubrique: [
-              { id: 401, libelle: "Intérêts bancaires", montant: 0.0 },
-              { id: 402, libelle: "Intérêts sur emprunts", montant: 0.0 },
-              { id: 403, libelle: "Pénalités", montant: 0.0 },
-              { id: 404, libelle: "Autres charges financières", montant: 0.0 },
-            ],
-          },
-        ],
-      },
-    ],
-  },
 ];
 
 // Composant pour afficher une colonne du bilan (Actif ou Passif)
-const BilanColumn = ({ data, title, icon }) => {
-  const total = data.reduce((sum, rubrique) => 
-    sum + rubrique.items.reduce((subSum, item) => subSum + item.montant, 0), 0)
+const BilanColumn = ({ categorie }) => {
+  const totalMontant = categorie.montant;
 
   return (
     <div className="flex flex-col h-full">
       <Card className="flex-grow">
         <CardHeader>
           <CardTitle className="flex items-center justify-center text-2xl font-semibold">
-            {icon}
-            <span className="ml-2">{title}</span>
+            {categorie.nomCategorie}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -169,23 +129,25 @@ const BilanColumn = ({ data, title, icon }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {data.map((rubrique, rubriquIndex) => (
-                <React.Fragment key={rubriquIndex}>
-                  {rubrique.items.map((item, itemIndex) => (
-                    <TableRow key={`${rubriquIndex}-${itemIndex}`}>
-                      {itemIndex === 0 && (
-                        <TableCell rowSpan={rubrique.items.length + 1} className="font-medium">
-                          {rubrique.titre}
+              {categorie.listeSousCategorie.map((sousCategorie, sousCategorieIndex) => (
+                <React.Fragment key={sousCategorieIndex}>
+                  {sousCategorie.listeTypeRubrique.map((typeRubrique, typeRubriqueIndex) => (
+                    <TableRow key={`${sousCategorieIndex}-${typeRubriqueIndex}`}>
+                      {typeRubriqueIndex === 0 && (
+                        <TableCell rowSpan={sousCategorie.listeTypeRubrique.length + 1} className="font-medium">
+                          {sousCategorie.nomSousCategorie}
                         </TableCell>
                       )}
-                      <TableCell>{item.libelle}</TableCell>
-                      <TableCell className="text-right">{item.montant.toLocaleString()} €</TableCell>
+                      <TableCell>{typeRubrique.nomTypeRubrique}</TableCell>
+                      <TableCell className="text-right">
+                        {typeRubrique.somme.toLocaleString()} €
+                      </TableCell>
                     </TableRow>
                   ))}
                   <TableRow>
-                    <TableCell className="font-semibold">Sous-total {rubrique.titre}</TableCell>
+                    <TableCell className="font-semibold">Sous-total {sousCategorie.nomSousCategorie}</TableCell>
                     <TableCell className="text-right font-semibold">
-                      {rubrique.items.reduce((sum, item) => sum + item.montant, 0).toLocaleString()} €
+                      {sousCategorie.montant.toLocaleString()} €
                     </TableCell>
                   </TableRow>
                 </React.Fragment>
@@ -195,34 +157,32 @@ const BilanColumn = ({ data, title, icon }) => {
         </CardContent>
       </Card>
       <div className="mt-4 p-4 bg-gray-100 rounded-lg">
-        <p className="text-xl font-bold text-right">Total {title}: {total.toLocaleString()} €</p>
+        <p className="text-xl font-bold text-right">
+          Total {categorie.nomCategorie}: {totalMontant.toLocaleString()} €
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-// Composant principal du bilan
 const Bilan = () => {
   return (
     <>
-    <SearchBilan value="Rechercher" />
-    
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center mb-6">Bilan de l'entreprise</h1>
-      <div className="flex flex-col md:flex-row gap-4 items-stretch">
-        <div className="flex-1">
-          <BilanColumn data={bilanData.actif} title="Actif" icon={<Briefcase className="w-6 h-6" />} />
-        </div>
-        <div className="hidden md:block w-px bg-gray-300 self-stretch mx-2"></div>
-        <div className="flex-1">
-          <BilanColumn data={bilanData.passif} title="Passif" icon={<Building2 className="w-6 h-6" />} />
+      <SearchBilan value="Rechercher" />
+
+      <div className="container mx-auto p-4">
+        <h1 className="text-3xl font-bold text-center mb-6">Bilan de l'entreprise</h1>
+        <div className="flex flex-col md:flex-row gap-4 items-stretch">
+          {categories.map((categorie, categorieIndex) => (
+            <div key={categorieIndex} className="flex-1">
+              <BilanColumn categorie={categorie} />
+            </div>
+          ))}
         </div>
       </div>
-    </div>
-    
     </>
-  )
-}
+  );
+};
 
-export default Bilan
+export default Bilan;
 
