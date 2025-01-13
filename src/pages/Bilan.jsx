@@ -18,7 +18,7 @@ const bilanData = {
     {
       titre: "Actif Courants ",
       items: [
-        
+
         { libelle: "Stocks", montant: 75000 },
         { libelle: "Créances clients", montant: 100000 },
         { libelle: "Disponibilités", montant: 50000 },
@@ -49,6 +49,101 @@ const bilanData = {
     },
   ]
 }
+
+/* 
+  Data de Test
+*/
+
+const categories = [
+  {
+    nomCategorie: "Capitaux propres et passifs",
+    montant: 0.0,
+    listeSousCategorie: [
+      {
+        nomSousCategorie: "Excedent brut d'exploitation",
+        montant: 0.0,
+        listeTypeRubrique: [
+          {
+            nomTypeRubrique: "Autres services exterieurs",
+            somme: 0.0,
+            listeRubrique: [
+              { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
+              { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
+              { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
+              { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    nomCategorie: "Actifs immobilisés",
+    montant: 0.0,
+    listeSousCategorie: [
+      {
+        nomSousCategorie: "Immobilisations corporelles",
+        montant: 0.0,
+        listeTypeRubrique: [
+          {
+            nomTypeRubrique: "Biens immobiliers",
+            somme: 0.0,
+            listeRubrique: [
+              { id: 201, libelle: "Terrains", montant: 0.0 },
+              { id: 202, libelle: "Bâtiments", montant: 0.0 },
+              { id: 203, libelle: "Mobilier", montant: 0.0 },
+              { id: 204, libelle: "Matériel de bureau", montant: 0.0 },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    nomCategorie: "Produits d'exploitation",
+    montant: 0.0,
+    listeSousCategorie: [
+      {
+        nomSousCategorie: "Produits de vente",
+        montant: 0.0,
+        listeTypeRubrique: [
+          {
+            nomTypeRubrique: "Chiffre d'affaires",
+            somme: 0.0,
+            listeRubrique: [
+              { id: 301, libelle: "Ventes de marchandises", montant: 0.0 },
+              { id: 302, libelle: "Ventes de services", montant: 0.0 },
+              { id: 303, libelle: "Produits accessoires", montant: 0.0 },
+              { id: 304, libelle: "Autres produits", montant: 0.0 },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    nomCategorie: "Charges financières",
+    montant: 0.0,
+    listeSousCategorie: [
+      {
+        nomSousCategorie: "Frais financiers",
+        montant: 0.0,
+        listeTypeRubrique: [
+          {
+            nomTypeRubrique: "Charges d'intérêts",
+            somme: 0.0,
+            listeRubrique: [
+              { id: 401, libelle: "Intérêts bancaires", montant: 0.0 },
+              { id: 402, libelle: "Intérêts sur emprunts", montant: 0.0 },
+              { id: 403, libelle: "Pénalités", montant: 0.0 },
+              { id: 404, libelle: "Autres charges financières", montant: 0.0 },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
 
 // Composant pour afficher une colonne du bilan (Actif ou Passif)
 const BilanColumn = ({ data, title, icon }) => {
