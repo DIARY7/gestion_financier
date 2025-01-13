@@ -5,7 +5,7 @@ import EtatFinancier from './pages/EtatFinancier';
 import Home from './pages/Home';
 import "./App.css"
 import "./index.css"
-import InsertionBilan from './pages/InsertionBilan';
+import InsertionEcriture from './pages/InsertionEcriture';
 
 const router = createBrowserRouter([
   {
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
         element:<Bilan />
       },
       {
-        path:'insertion-bilan',
-        element:< InsertionBilan />
+        path:'insertion-ecriture',
+        element:<InsertionEcriture />
       },
       {
         path:'etat_financier',
@@ -63,7 +63,7 @@ function Root(){
           </li>
 
           <li>
-            <NavLink to="/insertion-bilan" className="nav-link text-white">
+            <NavLink to="/insertion-ecriture" className="nav-link text-white">
               {/* <svg className="bi me-2" width="16" height="16"><use xlinkHref="#speedometer2"/></svg> */}
               Nouveau  
             </NavLink>
