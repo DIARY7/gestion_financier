@@ -18,6 +18,7 @@ const bilanData = {
     {
       titre: "Actif Courants ",
       items: [
+        
         { libelle: "Stocks", montant: 75000 },
         { libelle: "Créances clients", montant: 100000 },
         { libelle: "Disponibilités", montant: 50000 },
