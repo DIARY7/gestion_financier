@@ -6,109 +6,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Briefcase, Building2 } from 'lucide-react'
 import SearchBilan from '../composants/ui/form/SearchBilan'
 
-// const categories = [
-//   {
-//     nomCategorie: "Actif",
-//     montant: 450000,
-//     listeSousCategorie: [
-//       {
-//         nomSousCategorie: "Actifs Non Courants",
-//         montant: 225000,
-//         listeTypeRubrique: [
-//           {
-//             nomTypeRubrique: "Immobilisations incorporelles",
-//             somme: 50000,
-//             listeRubrique: [
-//               { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
-//               { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
-//               { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
-//               { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
-//             ],
-//           },
-//           {
-//             nomTypeRubrique: "Immobilisations corporelles",
-//             somme: 150000,
-//             listeRubrique: [
-//               { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
-//               { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
-//               { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
-//               { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
-//             ],
-//           },
-//           {
-//             nomTypeRubrique: "Immobilisations financières",
-//             somme: 25000,
-//             listeRubrique: [
-//               { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
-//               { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
-//               { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
-//               { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
-//             ],
-//           },
-//         ],
-//       },
-//       {
-//         nomSousCategorie: "Actifs Courants",
-//         montant: 225000,
-//         listeTypeRubrique: [
-//           {
-//             nomTypeRubrique: "Stocks",
-//             somme: 75000,
-//             listeRubrique: [
-//               { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
-//               { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
-//               { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
-//               { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
-//             ],
-//           },
-//           {
-//             nomTypeRubrique: "Créances clients",
-//             somme: 100000,
-//             listeRubrique: [
-//               { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
-//               { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
-//               { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
-//               { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
-//             ],
-//           },
-//           {
-//             nomTypeRubrique: "Disponibilités",
-//             somme: 50000,
-//             listeRubrique: [
-//               { id: 116, libelle: "Autres impots et taxes", montant: 0.0 },
-//               { id: 87, libelle: "Achats de materiels, equipements et travaux", montant: 0.0 },
-//               { id: 71, libelle: "Ventes de produits intermediaires", montant: 0.0 },
-//               { id: 68, libelle: "Associes, dividendes … payer", montant: 0.0 },
-//             ],
-//           },
-//         ],
-//       },
-//     ],
-//   },
-//   {
-//     nomCategorie: "Passif",
-//     montant: 450000,
-//     listeSousCategorie: [
-//       {
-//         nomSousCategorie: "Capitaux propres",
-//         montant: 450000,
-//         listeTypeRubrique: [
-//           {
-//             nomTypeRubrique: "Capital",
-//             somme: 450000,
-//             listeRubrique: [
-//               { id: 201, libelle: "Terrains", montant: 0.0 },
-//               { id: 202, libelle: "Bâtiments", montant: 0.0 },
-//               { id: 203, libelle: "Mobilier", montant: 0.0 },
-//               { id: 204, libelle: "Matériel de bureau", montant: 0.0 },
-//             ],
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// ];
-
 // Composant pour afficher une colonne du bilan (Actif ou Passif)
 
 const BilanColumn = ({ categorie }) => {
@@ -172,8 +69,7 @@ const Bilan = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [catTsyResultat, setCatTsyResultat] = useState([]);
-  const [year,setYear] = useState(2024);
-  const [idSociety,setIdSociety] = useState(1);
+  const [tsyAmpy,setTsyAmpy]  = useState([]);
 
   const fetchBilan = async () => {
     try {
@@ -218,6 +114,8 @@ const Bilan = () => {
     } finally {
       setLoading(false); // Indiquer que le chargement est terminé
     }
+    
+
   };
 
   return (

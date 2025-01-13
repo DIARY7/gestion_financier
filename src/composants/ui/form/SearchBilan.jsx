@@ -15,13 +15,7 @@ const SearchBilan  = ({value,onSubmit}) => {
 
   // Liste exemple d'entreprises
   const companies = [
-    { id: '1', name: 'Apple Inc.' },
-    { id: '2', name: 'Google' },
-    { id: '3', name: 'Microsoft' },
-    { id: '4', name: 'Amazon' },
-    { id: '5', name: 'Meta' },
-    { id: '6', name: 'Tesla' },
-    { id: '7', name: 'Netflix' },
+    { id: '1', name: 'Apple Inc.' }
   ];
 
   const handleSubmit = (e) => {
@@ -46,6 +40,7 @@ const SearchBilan  = ({value,onSubmit}) => {
             </label>
             <input
                 ref={dateRef}
+                defaultValue="2024"
                 type='number'
                 className="w-full h-10 px-3 py-2 rounded-md border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-gray-400 transition-colors"
                 />
