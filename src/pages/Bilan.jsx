@@ -124,7 +124,9 @@ const Bilan = () => {
         </div>
       </div>
     </div>
-    
+    <div className = "container mx-auto p-4" >
+      <BilanColumn data={bilanData.passif} title="Passif" icon={<Building2 className="w-6 h-6" />} />
+    </div>
     </>
   )
 }
