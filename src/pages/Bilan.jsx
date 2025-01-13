@@ -118,7 +118,7 @@ const BilanColumn = ({ categorie }) => {
       <Card className="flex-grow">
         <CardHeader>
           <CardTitle className="flex items-center justify-center text-2xl font-semibold">
-            {categorie.nomCategorie}
+            {categorie.name}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -131,25 +131,25 @@ const BilanColumn = ({ categorie }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {categorie.listeSousCategorie.map((sousCategorie, sousCategorieIndex) => (
+              {categorie.sousCategories.map((sousCategorie, sousCategorieIndex) => (
                 <React.Fragment key={sousCategorieIndex}>
-                  {sousCategorie.listeTypeRubriqueBilan.map((typeRubrique, typeRubriqueIndex) => (
+                  {sousCategorie.typeRubriques.map((typeRubrique, typeRubriqueIndex) => (
                     <TableRow key={`${sousCategorieIndex}-${typeRubriqueIndex}`}>
                       {typeRubriqueIndex === 0 && (
-                        <TableCell rowSpan={sousCategorie.listeTypeRubriqueBilan.length + 1} className="font-medium">
-                          {sousCategorie.nomSousCategorie}
+                        <TableCell rowSpan={sousCategorie.typeRubriques.length + 1} className="font-medium">
+                          {sousCategorie.name}
                         </TableCell>
                       )}
-                      <TableCell>{typeRubrique.nomTypeRubrique}</TableCell>
+                      <TableCell>{typeRubrique.name}</TableCell>
                       <TableCell className="text-right">
-                        {typeRubrique.montant.toLocaleString()} €
+                        {typeRubrique.value.toLocaleString()} €
                       </TableCell>
                     </TableRow>
                   ))}
                   <TableRow>
-                    <TableCell className="font-semibold">Sous-total {sousCategorie.nomSousCategorie}</TableCell>
+                    <TableCell className="font-semibold">Sous-total {sousCategorie.name}</TableCell>
                     <TableCell className="text-right font-semibold">
-                      {sousCategorie.montant.toLocaleString()} €
+                      {sousCategorie.value.toLocaleString()} €
                     </TableCell>
                   </TableRow>
                 </React.Fragment>
@@ -160,7 +160,7 @@ const BilanColumn = ({ categorie }) => {
       </Card>
       <div className="mt-4 p-4 bg-gray-100 rounded-lg">
         <p className="text-xl font-bold text-right">
-          Total {categorie.nomCategorie}: {categorie.montant.toLocaleString()} €
+          Total {categorie.name}: {categorie.value.toLocaleString()} €
         </p>
       </div>
     </div>
