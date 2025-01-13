@@ -104,7 +104,7 @@ function InsertionEcriture() {
       <div className="container max-w-screen-lg mx-auto">
         <div className="bg-white rounded-lg p-8 shadow-lg">
           <h2 className="text-2xl font-semibold text-gray-700 mb-8">
-            Nouveau ecriture
+            Nouvelle ecriture
           </h2>
           
           <form onSubmit={handleSubmit}>

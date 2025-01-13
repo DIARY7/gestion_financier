@@ -1,18 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { Calendar, Search, ChevronDown, Building2 } from 'lucide-react';
 
-const SearchBilan  = ({value}) => {
-  
+const SearchBilan  = ({value,onSubmit}) => {
   
   const btnStyle = {
     width: '180px',
     justifyContent: 'center', 
   };
 
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedCompany, setSelectedCompany] = useState('');
-  // const dateRef = useRef(null);
-  // const companyRef = useRef(null);
+  // const [selectedDate, setSelectedDate] = useState('');
+  // const [selectedCompany, setSelectedCompany] = useState('');
+  const dateRef = useRef(null);
+  const companyRef = useRef(null);
 
   // Liste exemple d'entreprises
   const companies = [
@@ -25,31 +24,13 @@ const SearchBilan  = ({value}) => {
     { id: '7', name: 'Netflix' },
   ];
 
-  const generateDates = () => {
-    const dates = [];
-    const today = new Date();
-    
-    for (let i = 0; i < 30; i++) {
-      const date = new Date(today);
-      date.setDate(today.getDate() - i);
-      dates.push({
-        value: date.toISOString().split('T')[0],
-        label: date.toLocaleDateString('fr-FR', {
-          day: '2-digit',
-          month: 'long',
-          year: 'numeric'
-        })
-      });
-    }
-    return dates;
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     //
-    // const selectedDate = dateRef.current.value;
-    // const selectedCompany = companyRef.current.value;
-    //
+    const selectedDate = dateRef.current.value;
+    const selectedCompany = companyRef.current.value;
+    onSubmit(selectedDate,1);
+    
     console.log('Date sélectionnée:', selectedDate);
     console.log('Entreprise sélectionnée:', selectedCompany);
   };
@@ -63,21 +44,11 @@ const SearchBilan  = ({value}) => {
               <Calendar className="h-4 w-4" />
               Sélectionner une date
             </label>
-            <select 
-                value={selectedDate}
-                onChange={(e) => setSelectedDate(e.target.value)}
+            <input
+                ref={dateRef}
+                type='number'
                 className="w-full h-10 px-3 py-2 rounded-md border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-gray-400 transition-colors"
-                >
-                <option value="">Choisir une date</option>
-                {generateDates().map((date) => (
-                    <option 
-                    key={date.value} 
-                    value={date.value}
-                    >
-                    {date.label}
-                    </option>
-                ))}
-                </select>
+                />
           </div>
 
           <div className="w-[300px]">
@@ -86,8 +57,7 @@ const SearchBilan  = ({value}) => {
               Sélectionner une entreprise
             </label>
             <select
-              value={selectedCompany}
-              onChange={(e)=> setSelectedCompany(e.target.value)}
+              ref={companyRef}
               className="w-full h-10 px-3 py-2 rounded-md border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-gray-400 transition-colors"
             >
                 <option value="" > Choisir une entreprise </option>
@@ -108,7 +78,6 @@ const SearchBilan  = ({value}) => {
             type="submit"
             style={btnStyle}
             className="bg-blue-600 hover:bg-blue-700 text-white font-medium w-210 h-10 rounded-lg transition-colors flex items-center gap-2"
-            disabled={!selectedDate || !selectedCompany}
           >
             <Search className="h-4 w-4" />
             {value}
