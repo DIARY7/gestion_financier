@@ -1,0 +1,11 @@
+.containForm{
+    width: 50%;
+    margin: auto;
+}
+.containForm .form-control, .containForm .form-select{
+    width: 75%;
+    
+}
+.div_btn_sub{
+    margin-top: 12px;
+}

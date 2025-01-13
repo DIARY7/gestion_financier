@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family:poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+
+#sideBar .active{
+  transform: translate(10px);
+  transition: 0.2s;
+}

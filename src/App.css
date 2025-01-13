@@ -1,0 +1,9 @@
+#sideBar{
+  height: 100vh;
+  position: fixed;
+}
+.droite{
+  margin-left: 280px ;
+  padding-top: 25px;
+  font-family: poppins;
+}
